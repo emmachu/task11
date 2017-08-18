@@ -1,0 +1,144 @@
+@charset "utf-8";
+
+
+@bg_color:#5fc0cd;
+	.style1{
+		width: 100%;
+	}
+	.style2{
+		.style1;
+		height: 100%;
+	}
+.color{
+	color: #fff;
+}
+.mixin1(...){
+	margin: @arguments;
+}
+.mixin2(...){
+	padding: @arguments;
+}
+*{
+	.mixin1(0);
+	.mixin2(0);
+}
+body,html{
+	.style2;
+}
+html{
+	font-size:62.5%;
+}
+body{
+	overflow:hidden;
+	font-size: 3.2rem;
+}
+
+.contain{
+	.style2;
+	.mixin2(0);
+	background-color:#eff0f4;
+}
+.header{
+	.style1;
+	.mixin1(0 0 1rem 0);
+	.mixin2(0 5%);
+	height: 8rem;
+	line-height: 8rem;
+	background-color: @bg_color;
+	.inner{
+		.mixin2(0);
+	}
+	.list{
+		.mixin1(0);
+		.mixin2(0);
+		list-style-type: none;
+		display: flex;
+		justify-content: space-between;
+	}
+	.list-item{
+		cursor: pointer;
+	}
+	.list-item-font{
+		font-size:3.6rem;
+	}
+	.link{
+		text-decoration: none;
+		.color;
+	}
+}
+.section{
+	.style1;
+	.mixin1(0 0 5rem 0);
+	.main{
+		.mixin2(0);
+	}
+}
+.form{
+	.style1;
+	.mixin2(0 0 0 14rem);
+	height: 8rem;
+	border: none;
+	outline: none;
+	background-repeat: no-repeat;
+	background-position: 3.5rem center;
+	background-size: 8rem 6rem;
+}
+.form::-webkit-input-placeholder{
+		color: #e1e5e7;
+}
+.form:-moz-input-placeholder{
+		color: #e1e5e7;
+}
+.form::-ms-input-placeholder{
+		color: #e1e5e7;
+}
+.form:-o-input-placeholder{
+		color: #e1e5e7;
+}
+.form:input-placeholder{
+		color: #e1e5e7;
+}
+.tell{
+	background-image: url(img/iphone.png);	
+}
+.password{
+	background-image: url(img/lock.png);
+}
+.footer{
+	.mixin1(0);
+	.inner{
+		.mixin2(0);
+		.mixin1(0 0 1rem 0);
+	}
+	.btn{
+		.style1;
+		.color;
+		height: 8rem;
+		border: none;
+		outline: none;
+		background-color: @bg_color;
+		font-size: 3.6rem;
+		letter-spacing: 1.5rem;
+		&:hover,
+		&:active{
+			background-color: @bg_color+20;
+			outline: none;
+		}
+	}
+	.forget{
+		float: right;
+		text-align: right;
+		cursor: pointer;
+	}
+	.link{
+		color: @bg_color;
+		text-decoration: none;
+	}
+}
+@media screen and (max-width:375px) {
+	.form{
+		font-size: 2.5rem;
+		background-size: 6rem 4.5rem;
+		.mixin2(0 0 0 12rem);
+	}
+}

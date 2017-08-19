@@ -1,0 +1,180 @@
+@charset "utf-8";
+
+
+@bg_color:#5fc0cd;
+	.style1{
+		width: 100%;
+	}
+	.style2{
+		.style1;
+		height: 100%;
+	}
+.color{
+	color: #fff;
+}
+.mixin1(...){
+	margin: @arguments;
+}
+.mixin2(...){
+	padding: @arguments;
+}
+*{
+	.mixin1(0);
+	.mixin2(0);
+}
+body,html{
+	.style2;
+}
+html{
+	font-size:62.5%;
+}
+body{
+	overflow:hidden;
+	font-size: 3.2rem;
+}
+
+.contain{
+	.style2;
+	.mixin2(0);
+	background-color:#eff0f4;
+}
+.header{
+	.style1;
+	.mixin1(0 0 1rem 0);
+	.mixin2(0 5%);
+	height: 8rem;
+	line-height: 8rem;
+	background-color: @bg_color;
+	.inner{
+		.mixin2(0);
+	}
+	.list{
+		.mixin1(0);
+		.mixin2(0);
+		list-style-type: none;
+		display: -webkit-flex;
+		display:-ms-flexbox;
+		-ms-flex-pack: justify;
+		display:flex;
+		justify-content: space-between;	
+	}
+	.list-item{
+		cursor: pointer;
+	}
+	.list-item-font{
+		font-size:3.6rem;
+	}
+	.link{
+		text-decoration: none;
+		.color;
+	}
+}
+.section{
+	.style1;
+	.mixin1(0 0 5rem 0);
+	.main{
+		.mixin2(0);
+	}
+}
+.form{
+	.style1;
+	height: 8rem;
+	background-color: #fff;
+	margin-bottom: 1rem;
+}
+.tell{
+	width: 10%;
+	height: 8rem;
+	float: left;
+	background-color: #fff;
+	background: url(img/iphone.png) no-repeat;	
+	background-position: center center;
+	background-size: 3.1rem 4.5rem;
+}
+.password{
+	width: 10%;
+	height: 8rem;
+	float: left;
+	background-color: #fff;
+	background: url(img/lock.png) no-repeat;
+	background-position: center center;
+	background-size: 3.1rem 4.5rem;
+}
+.input{
+	width: 90%;
+	float: left;
+	.mixin2(0 0 0 3rem);
+	height: 6rem;
+	margin-top: 1rem;
+	border-left: .2rem solid #e1e5e7;
+	border-right: none;
+	border-top: none;
+	border-bottom: none;
+	outline: none;
+}
+.input::-webkit-input-placeholder{
+		color: #e1e5e7;
+}
+.input:-moz-input-placeholder{
+		color: #e1e5e7;
+}
+.input:-ms-input-placeholder{
+		color: #e1e5e7;
+}
+.input:-o-input-placeholder{
+		color: #e1e5e7;
+}
+.input:input-placeholder{
+		color: #e1e5e7;
+}
+.footer{
+	.mixin1(0);
+	.inner{
+		.mixin2(0);
+		.mixin1(0 0 1rem 0);
+	}
+	.btn{
+		.style1;
+		.color;
+		height: 8rem;
+		border: none;
+		outline: none;
+		background-color: @bg_color;
+		font-size: 3.6rem;
+		letter-spacing: 1.5rem;
+		&:hover,
+		&:active{
+			background-color: @bg_color+20;
+			outline: none;
+		}
+	}
+	.forget{
+		float: right;
+		text-align: right;
+		cursor: pointer;
+	}
+	.link{
+		color: @bg_color;
+		text-decoration: none;
+	}
+}
+@media screen and (max-width:425px) {
+	.form{
+		font-size: 3rem;
+	}
+	.tell,.password{
+		width: 20%;
+	}
+	.input{
+		width: 80%;
+		.mixin2(0 0 0 2rem);
+	}
+}
+@media screen and (max-width:375px) {
+	.tell,.password{
+		width: 25%;
+	}
+	.input{
+		width: 75%;
+	}
+}
